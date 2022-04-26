@@ -21,9 +21,9 @@
 <body>
 
   <div id="app">
-    <div class="container-fluid debug">
-      <div class="container debug">
-    
+    <div class="container-fluid">
+      <div class="header-color"></div>
+      <div class="container">
         <div class="aside">
           <div class="row header">
             <div class="nav align-items-center">
@@ -54,11 +54,9 @@
               <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
             </div>
           </div> <!-- /row search-->
-
-          
-          <div id="userList">
+          <div id="userList" class="overflow-auto">
             <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-start">
+              <li class="list-group-item d-flex justify-content-between align-items-start userActive">
                 <img class="avatar" src="img/avatar_1.jpg" alt="Michele">
                 <div class="ms-2 me-auto">
                   <div class="userTitle">Michele</div>
@@ -124,14 +122,10 @@
               </li>
             </ul>
           </div> <!-- /div > User list-group -->
-          
-
-
-
         </div> <!-- /aside -->
 
-        <div class="main debug">
-          <div class="row header debug">
+        <div class="main">
+          <div class="row header">
             <div class="nav align-items-center">
               <div class="d-flex justify-content-between align-items-center">
                 <img class="avatar" src="img/avatar_1.jpg" alt="Michele"> 
@@ -139,18 +133,17 @@
                     <span class="subtitle">Ultimo accesso oggi alle 12:00</span>
                   </div>
               </div>
-                  
-                <div class="justify-content-end">
-                  <i class="icons icon-size fa-solid fa-magnifying-glass"></i>
-                  <i class="icons icon-size fa-solid fa-paperclip"></i>
-                  <i class="icons icon-size fa-solid fa-ellipsis-vertical"></i>
-                </div>
+              <div class="justify-content-end">
+                <i class="icons icon-size fa-solid fa-magnifying-glass"></i>
+                <i class="icons icon-size fa-solid fa-paperclip"></i>
+                <i class="icons icon-size fa-solid fa-ellipsis-vertical"></i>
+              </div>
             </div> <!-- /nav-->
           </div> <!-- /row header-->
 
           <!-- messageList-->
           <div id="messageList">
-            <ul class="messageListGroup">
+            <ul class="messageListGroup overflow-auto">
               <!-- <li class="list-group-item d-flex justify-content-between align-items-start"> -->
               <li class="d-flex">
                 <div class="box send">
@@ -173,7 +166,7 @@
             </ul>
           </div> <!-- /messaglist -->
 
-          <div class="row footer debug">
+          <div class="row footer">
             <div class="d-flex justify-content-between align-items-center">
               <i class="icons icon-size fa-regular fa-face-smile"></i>
               <input type="text" class="form-control" placeholder="Scrivi un messaggio">
