@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing:border-box;
+  box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -25,3 +25,46 @@
 */
 
 /* General */
+.avatar{
+  width: 50px;
+  border-radius: 50%;
+}
+.icons{
+  font-size: 25px;
+  color: #a8a8a8;
+  margin: 10px;
+}
+
+.container-fluid{
+  background-color: #dbdbd4;
+}
+.container{
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  flex-flow: row nowrap;
+}
+    
+.aside{
+  width: calc(100%/2);
+  height: 90vh;
+}
+.row{
+  width: 100%;
+  height: 70px;
+  border: 1px solid blue;
+} 
+.row.header{
+  height: 70px;
+  background-color: #e7e7e7;
+}
+.nav{
+  justify-content: space-between;
+  padding: 0 15px;
+}
+/* Main */
+.main{
+  width: calc(100%/2);
+  height: 90vh;
+  background-image: url(/img/mine.jpg);
+}
