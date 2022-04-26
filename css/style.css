@@ -1,0 +1,27 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.debug{
+  border: 1px solid red;
+}
+
+/* Palette */
+/* Sfondo
+/* verde nav sfondo = #159588;
+/* bianco nav sfondo = #dbdbd4;
+/* App
+/* grigio nav sfondo = #e7e7e7;
+/* grigio icone nav = #a8a8a8;
+/* azzurro row notifiche = #a8a8a8;
+/* bianco sfondo row cerca = #f9f9f9;
+/* grigio sfondo row utente attivo = #e6e8e8;
+/* beige sfondo row footer msg = #f1ebe7;
+/* verde sfondo msg = #cff8b1;
+*/
+
+/* General */
