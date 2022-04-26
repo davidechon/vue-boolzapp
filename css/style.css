@@ -84,6 +84,17 @@
   background-color: #f9f9f9;
   font-size: 12px;
 }
+.userTitle{
+  font-weight: 600;
+}
+.subtitle{
+  font-size: 10px;
+  font-weight: 300px;
+}
+.hours{
+  font-size: 12px;
+  font-weight: 300px;
+}
 /* Main */
 .main{
   width: calc(100%/2);
