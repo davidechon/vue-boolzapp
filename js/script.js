@@ -174,11 +174,12 @@ const app = new Vue({
                         status: 'received'
                     },
                 ],
-                activeContactIndex: 0,
+                
+            }
+        ],
+        activeContactIndex: 0,
                 searchText: '',
                 message: '',
-            }
-        ]
 
     },
     methods: {

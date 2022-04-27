@@ -74,17 +74,17 @@
                   </div>
               </li> -->
 
-              <li class="list-group-item d-flex justify-content-between align-items-start userActive" 
+              <li class="list-group-item d-flex justify-content-between align-items-start" 
               v-for="(contact, index) in contacts" :key="index"
-              :class="{'active': activeContactIndex === index}"
+              :class="index === activeContactIndex ? 'active' : ''"
               @click="viewChat(index)"
               >
                 <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar di ' + contact.name">
                 <div class="ms-2 me-auto">
-                  <div :class="userTitle">{{contact.name}}</div>
+                  <div class="userTitle">{{contact.name}}</div>
                   <span class="subtitle">Ultimo messaggio inviato</span>
                 </div>
-                <span :class="hours">12:00</span>
+                <span class="hours">12:00</span>
               </li>
               <!-- <li class="list-group-item d-flex justify-content-between align-items-start">
                 <img class="avatar" src="img/avatar_1.jpg" alt="MIchele">
@@ -159,7 +159,7 @@
             <div class="nav align-items-center">
               <div class="d-flex justify-content-between align-items-center">
                 <img class="avatar" src="img/avatar_1.jpg" alt="Michele"> 
-                  <div class="userTitlepx-2">Michele</br>
+                  <div class="userTitle px-2">Michele</br>
                     <span class="subtitle">Ultimo accesso oggi alle 12:00</span>
                   </div>
               </div>
@@ -171,12 +171,27 @@
             </div> <!-- /nav-->
           </div> <!-- /row header-->
 
+          <!-- Test messageList-->
+          <div class="col-8 bg-light h100">
+            <!-- <div class="header">a</div> -->
+            <div class="box">
+              <div class="messageText"
+              v-for="(item,index) in contacts.messages"
+              :key="index"
+              :class="item.status === 'sent' ? 'sent' : 'recived'"
+              >
+                <span>{{item.message}}</span>
+              </div>
+            </div>
+
+          </div>
+          <!-- Test messageList-->
           <!-- messageList-->
-          <div id="messageList">
+          <!--<div id="messageList">
             <ul class="messageListGroup overflow-auto">
               <li class="d-flex">
                 <div class="box send">
-                  <!-- <div class="messageText" v-for="(message, index), in contacts[activeContactIndex].messages" :key="index">{{item.message}}</div> -->
+                  <div class="messageText">Hai portato a spasso il cane?</div>
                   <div class="messageHours">15:30</div>
                 </div>
               </li>
@@ -193,7 +208,7 @@
                 </div>
               </li>
             </ul>
-          </div> <!-- /messaglist -->
+          </div>  /messaglist -->
 
           <div class="row footer">
             <div class="d-flex justify-content-between align-items-center">
