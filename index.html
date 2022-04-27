@@ -13,7 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,900;1,100;1,300;1,400;1,600;1,900&display=swap" rel="stylesheet">
   <!-- Vue Js -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <!-- Day Js -->
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <!-- Css Style -->
   <link rel="stylesheet" href="css/style.css">
   <title>Vue Boolzapp</title>
@@ -52,14 +54,42 @@
               <button class="btn btn-outline-secondary" type="button">
                 <i class="fa-solid fa-magnifying-glass"></i></button>
               <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
+               <!-- v-model="searchText" @keyup="filterContact"> -->
             </div>
           </div> <!-- /row search-->
-          <div id="userList" class="overflow-auto">
+          <!-- UserList -->
+          <div id="userList" class=" overflow-auto">
             <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-start userActive">
-                <img class="avatar" src="img/avatar_1.jpg" alt="Michele">
+              <!-- <li 
+              v-for="(contact, index) in contacts" :key="index" 
+              class="list-group-item d-flex justify-content-between align-items-start my-active"
+              :class="{'active': activeContactIndex === index}"
+              @click="viewChat(index)">
+                  <div v-if="contact.visible">
+                    <img class="avatar" :src="'./img/avatar' + contact.avatar + '.jpg'" :alt="'Avartar di ' + contact.name">
+                  <div :class="userTitle">{{contact.name}}</div>
+                  <span class="subtitle">Ultimo messaggio inviato</span>
+                  </div>
+                <span class="hours">12:00</span>
+                  </div>
+              </li> -->
+
+              <li class="list-group-item d-flex justify-content-between align-items-start userActive" 
+              v-for="(contact, index) in contacts" :key="index"
+              :class="{'active': activeContactIndex === index}"
+              @click="viewChat(index)"
+              >
+                <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar di ' + contact.name">
                 <div class="ms-2 me-auto">
-                  <div class="userTitle">Michele</div>
+                  <div :class="userTitle">{{contact.name}}</div>
+                  <span class="subtitle">Ultimo messaggio inviato</span>
+                </div>
+                <span :class="hours">12:00</span>
+              </li>
+              <!-- <li class="list-group-item d-flex justify-content-between align-items-start">
+                <img class="avatar" src="img/avatar_1.jpg" alt="MIchele">
+                <div class="ms-2 me-auto">
+                  <div :class="userTitle">Michele</div>
                   <span class="subtitle"></span>Ultimo messaggio inviato</span>
                 </div>
                 <span class="hours">12:00</span>
@@ -119,7 +149,7 @@
                   <span class="subtitle"></span>Ultimo messaggio inviato</span>
                 </div>
                 <span class="hours">12:00</span>
-              </li>
+              </li> -->
             </ul>
           </div> <!-- /div > User list-group -->
         </div> <!-- /aside -->
@@ -144,10 +174,9 @@
           <!-- messageList-->
           <div id="messageList">
             <ul class="messageListGroup overflow-auto">
-              <!-- <li class="list-group-item d-flex justify-content-between align-items-start"> -->
               <li class="d-flex">
                 <div class="box send">
-                  <div class="messageText">Hai portato a spasso il cane?</div>
+                  <!-- <div class="messageText" v-for="(message, index), in contacts[activeContactIndex].messages" :key="index">{{item.message}}</div> -->
                   <div class="messageHours">15:30</div>
                 </div>
               </li>
@@ -169,7 +198,7 @@
           <div class="row footer">
             <div class="d-flex justify-content-between align-items-center">
               <i class="icons icon-size fa-regular fa-face-smile"></i>
-              <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+              <input type="text" class="form-control" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage()">
               <i class="icons icon-size fa-solid fa-microphone"></i>
             </div>
           </div> <!-- /row footer-->
