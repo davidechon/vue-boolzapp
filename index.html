@@ -11,7 +11,7 @@
   <!-- Font Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,600;0,900;1,100;1,300;1,400;1,600;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,900;1,100;1,300;1,400;1,600;1,900&display=swap" rel="stylesheet">
   <!-- Vue Js -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <!-- Day Js -->
@@ -54,8 +54,8 @@
             <div class="input-group">
               <button class="btn btn-outline-secondary" type="button">
                 <i class="fa-solid fa-magnifying-glass"></i></button>
-              <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
-               <!-- v-model="searchText" @keyup="filterContact"> -->
+              <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+               v-model="searchText" @keyup="filterContact()">
             </div>
           </div> <!-- /row search-->
 
@@ -199,7 +199,12 @@
           <div class="row footer">
             <div class="d-flex justify-content-between align-items-center">
               <i class="icons icon-size fa-regular fa-face-smile"></i>
-              <input type="text" class="form-control" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage()">
+
+              <input type="text" class="form-control" placeholder="Scrivi un messaggio" 
+              v-model="message"
+              @keyup.enter="sendMessage()"
+              >
+
               <i class="icons icon-size fa-solid fa-microphone"></i>
             </div>
           </div> <!-- /row footer-->

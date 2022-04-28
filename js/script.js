@@ -1,14 +1,27 @@
 // alert("Hello World!")
 // Boolzapp - a (not very) innovative messaging platform
 
-// Milestone 1
-// ●	Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
-// ●	Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
+// [OK] Milestone 1
+// [x]	Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
+// [x]	Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
 
+// [OK] Milestone 2
+// [x]	Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
+// [x]	Click sul contatto mostra la conversazione del contatto cliccato
+
+// [x] Milestone 3
+// [x]	Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// [x]	Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+
+// [_] Milestone 4
+// [_]	Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+
+// [_] Milestone 5 - opzionale
+// [_]	Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
+// [_]	Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
+// [_] Bonus
 
 //////////////////////////////////////////////////////////////////////////////////
-
-
 
 const app = new Vue({
     el: '#app',
@@ -186,20 +199,45 @@ const app = new Vue({
             this.activeContactIndex = index;
         },
         sendMessage() {
+            if (this.message === '') return;
             const newMessage = {
-                date: '12:00', 
-                // date: dayjs().format('DD/MM/YYYY HH:mm:ss'), 
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'), 
                 message: this.message,
-                status: 'send',
+                status: 'sent',
             };
-            this.contacts[this.activeContactIndex].message.push[newMessage];
+            this.contacts[this.activeContactIndex].messages.push(newMessage);
             this.message = '';
+
             const responseMessage = {
-                data: daysjs().format(),
+                data: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message: 'Ok',
-                status: 'received'
-            }  
-        }  /* /sendMessage */
+                status: 'received',
+            };
+            setTimeout(() => {
+                this.contacts[this.activeContactIndex].messages.push(responseMessage);
+            },1000)
+            
+
+        // setTimeout(()=> {
+        //         this.contacts[this.activeContactIndex].message.push[responseMessage];
+        //     },2000)
+
+        },  /* /sendMessage & responseMessage*/
+
+        filterContact() {
+            this.contacts.forEach((contact) => {
+                if (contact.name.toLowerCase().includes(this.searchText.toLowerCase())) {
+                    contact.visible = true;
+                } else {
+                    contact.visible = false;
+                }
+            })
+        },
+        
+
+
+
+
     } /* /methods */
 })
 

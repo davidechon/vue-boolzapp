@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .debug{
@@ -98,7 +98,7 @@
   font-weight: 600;
 }
 .subtitle{
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 300px;
 }
 .hours{
@@ -151,7 +151,7 @@
 }
 .messageHours{
   text-align: right;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 300;
   display: block;
 }
