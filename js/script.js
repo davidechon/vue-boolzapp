@@ -13,11 +13,11 @@
 // [x]	Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 // [x]	Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 
-// [_] Milestone 4
-// [_]	Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+// [x] Milestone 4
+// [x]	Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 
 // [_] Milestone 5 - opzionale
-// [_]	Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
+// [x]	Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
 // [_]	Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
 // [_] Bonus
 
@@ -233,7 +233,14 @@ const app = new Vue({
                 this.contacts[this.activeContactIndex].messages.pop(this.message)
             } else return;
         },
-        
+         noDate(contact) {
+            const noDate = contact.messages.length > 0 ? contact.messages.at(-1).date : ''
+            return noDate
+        },
+        noMessage(contact){
+            const noMessage = contact.messages.length > 0 ? contact.messages.at(-1).message : 'NESSUN MESSAGGIO'
+            return noMessage
+        }
 
     } /* /methods */
 })
