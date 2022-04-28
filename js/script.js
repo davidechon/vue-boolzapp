@@ -216,27 +216,22 @@ const app = new Vue({
             setTimeout(() => {
                 this.contacts[this.activeContactIndex].messages.push(responseMessage);
             },1000)
-            
+        },  /* /sendMessage & responseMessage & setTimeout*/
 
-        // setTimeout(()=> {
-        //         this.contacts[this.activeContactIndex].message.push[responseMessage];
-        //     },2000)
-
-        },  /* /sendMessage & responseMessage*/
-
-        filterContact() {
-            this.contacts.forEach((contact) => {
-                if (contact.name.toLowerCase().includes(this.searchText.toLowerCase())) {
+        filterContact(){
+            this.contacts.forEach((contact)=>{
+                if(contact.name.toLowerCase().includes(this.searchText)) {
                     contact.visible = true;
-                } else {
+                }else{
                     contact.visible = false;
                 }
             })
         },
+        toggle() {
+            
+        }
         
-
-
-
+        
 
     } /* /methods */
 })
