@@ -192,7 +192,7 @@ const app = new Vue({
         ],
         activeContactIndex: 0,
         searchText: '',
-        message: ''
+        message: '',
     },
     methods: {
         viewChat(index) {
@@ -218,20 +218,24 @@ const app = new Vue({
             },1000)
         },  /* /sendMessage & responseMessage & setTimeout*/
 
-        filterContact(){
-            this.contacts.forEach((contact)=>{
-                if(contact.name.toLowerCase().includes(this.searchText)) {
+        filterContact() {
+            this.contacts.forEach((contact) => {
+                console.log(contact.name.toLowerCase().includes(this.searchText.toLowerCase()))
+                if(contact.name.toLowerCase().includes(this.searchText.toLowerCase())) {
                     contact.visible = true;
                 }else{
                     contact.visible = false;
                 }
             })
         },
-        toggle() {
-            
+        
+        toogle() {
+            if (show.style.display === "none") {
+                show.style.display = "none";
+            } else {
+                show.style.display = "block";
+            }
         }
-        
-        
 
     } /* /methods */
 })
