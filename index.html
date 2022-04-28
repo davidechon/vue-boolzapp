@@ -11,7 +11,7 @@
   <!-- Font Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,900;1,100;1,300;1,400;1,600;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,600;0,900;1,100;1,300;1,400;1,600;1,900&display=swap" rel="stylesheet">
   <!-- Vue Js -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <!-- Day Js -->
@@ -31,7 +31,7 @@
           <div class="row header">
             <div class="nav align-items-center">
                 <div>
-                  <img class="avatar" src="img/avatar_io.jpg" alt="Sofia"> Sofia
+                  <img class="avatar" src="img/avatar_io.png" alt="Davide"> Davide
                 </div>
                 <div class="justify-content-end">
                   <i class="icons icon-size fa-solid fa-circle-notch"></i>
@@ -146,7 +146,7 @@
           <div class="row header">
             <div class="nav align-items-center">
               <div class="d-flex justify-content-between align-items-center">
-                <img class="avatar" :src="'./img/avatar' + contacts[activeContactIndex].avatar + '.jpg'" alt=""> 
+                <img class="avatar" :src="'./img/avatar' + contacts[activeContactIndex].avatar + '.jpg'" :alt="contacts[activeContactIndex].name"> 
                   <div class="userTitle px-2">{{contacts[activeContactIndex].name}}</br>
                     <span class="subtitle">Ultimo accesso oggi alle 12:00</span>
                   </div>
@@ -159,11 +159,13 @@
             </div> <!-- /nav-->
           </div> <!-- /row header-->
 
+
           <!-- messageList-->
           <div class="messageListGroup">
-            <div class="box send"
+            <div class="box sent"
               v-for="(item, index) in contacts[activeContactIndex].messages"
               :key="index"
+              :class="item.status === 'sent' ? 'sent' : 'recived' "
               >
                 <span class="messageText">{{item.message}}</span>
                 <span class="messageHours">{{item.date}}</span>
