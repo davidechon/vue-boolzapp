@@ -178,14 +178,32 @@ const app = new Vue({
             }
         ],
         activeContactIndex: 0,
-                searchText: '',
-                message: '',
-
+        searchText: '',
+        message: ''
     },
     methods: {
         viewChat(index) {
             this.activeContactIndex = index;
         },
+        sendMessage() {
+            const newMessage = {
+                date: '12:00', 
+                // date: dayjs().format('DD/MM/YYYY HH:mm:ss'), 
+                message: this.message,
+                status: 'send',
+            };
+            this.contacts[this.activeContactIndex].message.push[newMessage];
+            this.message = '';
+            const responseMessage = {
+                data: daysjs().format(),
+                message: 'Ok',
+                status: 'received'
+            }  
+        }  /* /sendMessage */
+    } /* /methods */
+})
+
+
         // sendMessage() {
         //     const newMessage = {
         //         // if(this.message === '') return, 
@@ -224,6 +242,3 @@ const app = new Vue({
                     
         //         })
         //     }
-    },
-
-})

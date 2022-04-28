@@ -16,6 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <!-- Day Js -->
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/plugin/utc.js"></script>
   <!-- Css Style -->
   <link rel="stylesheet" href="css/style.css">
   <title>Vue Boolzapp</title>
@@ -57,23 +58,10 @@
                <!-- v-model="searchText" @keyup="filterContact"> -->
             </div>
           </div> <!-- /row search-->
+
           <!-- UserList -->
           <div id="userList" class=" overflow-auto">
             <ul class="list-group">
-              <!-- <li 
-              v-for="(contact, index) in contacts" :key="index" 
-              class="list-group-item d-flex justify-content-between align-items-start my-active"
-              :class="{'active': activeContactIndex === index}"
-              @click="viewChat(index)">
-                  <div v-if="contact.visible">
-                    <img class="avatar" :src="'./img/avatar' + contact.avatar + '.jpg'" :alt="'Avartar di ' + contact.name">
-                  <div :class="userTitle">{{contact.name}}</div>
-                  <span class="subtitle">Ultimo messaggio inviato</span>
-                  </div>
-                <span class="hours">12:00</span>
-                  </div>
-              </li> -->
-
               <li class="list-group-item d-flex justify-content-between align-items-start" 
               v-for="(contact, index) in contacts" :key="index"
               :class="index === activeContactIndex ? 'userActive' : ''"
@@ -158,8 +146,8 @@
           <div class="row header">
             <div class="nav align-items-center">
               <div class="d-flex justify-content-between align-items-center">
-                <img class="avatar" src="img/avatar_1.jpg" alt="Michele"> 
-                  <div class="userTitle px-2">Michele</br>
+                <img class="avatar" :src="'./img/avatar' + contacts[activeContactIndex].avatar + '.jpg'" alt=""> 
+                  <div class="userTitle px-2">{{contacts[activeContactIndex].name}}</br>
                     <span class="subtitle">Ultimo accesso oggi alle 12:00</span>
                   </div>
               </div>
@@ -171,23 +159,18 @@
             </div> <!-- /nav-->
           </div> <!-- /row header-->
 
-          <!-- Test messageList-->
-          <div class="col-8 bg-light h100">
-            <!-- <div class="header">a</div> -->
-            <div class="box">
-              <div class="messageText"
-                v-for="(item,index) in contacts.messages"
-                :key="index"
-                :class="item.status === 'sent' ? 'sent' : 'recived'"
-              >
-                <span>{{item.message}}</span>
-              </div>
-            </div>
-
-          </div>
-          <!-- Test messageList-->
           <!-- messageList-->
-          <!--<div id="messageList">
+          <div class="messageListGroup">
+            <div class="box send"
+              v-for="(item, index) in contacts[activeContactIndex].messages"
+              :key="index"
+              >
+                <span class="messageText">{{item.message}}</span>
+                <span class="messageHours">{{item.date}}</span>
+            </div>
+          </div>
+          <!-- messageList-->
+          <!-- <div id="messageList">
             <ul class="messageListGroup overflow-auto">
               <li class="d-flex">
                 <div class="box send">
@@ -208,7 +191,8 @@
                 </div>
               </li>
             </ul>
-          </div>  /messaglist -->
+          </div>  -->
+           <!-- /messaglist -->
 
           <div class="row footer">
             <div class="d-flex justify-content-between align-items-center">
