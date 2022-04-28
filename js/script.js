@@ -228,54 +228,12 @@ const app = new Vue({
                 }
             })
         },
+        // removeMessage(index) {
+        //     if (this.contacts[this.activeContactIndex].message.length > 0) {
+        //         this.contacts[this.activeContactIndex].message.splice(index,1)
+        //     } else return;
+        // },
         
-        toogle() {
-            if (show.style.display === "none") {
-                show.style.display = "none";
-            } else {
-                show.style.display = "block";
-            }
-        }
 
     } /* /methods */
 })
-
-
-        // sendMessage() {
-        //     const newMessage = {
-        //         // if(this.message === '') return, 
-        //         data: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-        //         message: this.message,
-        //         status: 'sent'
-        //     };
-        //     this.contacts[this.activeContactIndex].message.push[newMessage];
-        //     this.message = '';
-        //     const responseMessage = {
-        //         data: dayjs().format(),
-        //         message: 'Ok',
-        //         status: 'received'
-        //     };
-        //     setTimeout(()=> {
-        //         this.contacts[this.activeContactIndex].message.push[responseMessage];
-        //     },2000)
-        // },
-        // filterContact() {
-        //     this.contacts.forEach((contact) => {
-        //         if (contact.name.toLowerCase().includes(this.searchText.toLowerCase())) {
-        //             contact.visible = true;
-        //         } else {
-        //             contact.visible = false;
-        //         }
-        //     })
-        // },
-        // computed: {
-        //     filterContact() {
-        //         return this.contacts.filter((contact) => {
-        //             if(contact.name.toLowerCase().includes(this.searchText.toLowerCase())) {
-        //                 return true
-        //             } else {
-        //                 return false 
-        //             }
-                    
-        //         })
-        //     }

@@ -110,7 +110,7 @@
   cursor: pointer;
 }
 .userActive{
-  background-color: #e6e8e8;
+  background-color: #cdcdcd;
 }
 /* Main */
 .main{
@@ -154,6 +154,26 @@
   font-size: 14px;
   font-weight: 300;
   display: block;
+}
+.dropmenu{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: #ffffff;
+}
+.dropmenu .fa-angle-down{
+  color: #acc0bc;
+    padding: 10px;
+}
+
+.dropmenu .fa-angle-down:hover{
+  padding: 10px;
+  background-color: #a8a8a8;
+  color: #ffffff;
+  border-radius: 50%;
+}
+.dropmenu ul li{
+  list-style: none;
 }
 .footer{
   position: absolute;
