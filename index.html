@@ -149,7 +149,7 @@
           <div class="row header">
             <div class="nav align-items-center">
               <div class="d-flex justify-content-between align-items-center">
-                <img class="avatar" :src="'./img/avatar' + contacts[activeContactIndex].avatar + '.jpg'" :alt="contacts[activeContactIndex].name"> 
+                <img :src="'./img/avatar' + contacts[activeContactIndex].avatar + '.jpg'" class="avatar" :alt="contacts[activeContactIndex].name"> 
                   <div class="userTitle px-2">{{contacts[activeContactIndex].name}}</br>
                     <span class="subtitle">Ultimo accesso oggi alle 12:00</span>
                   </div>
@@ -172,9 +172,6 @@
               >
                 <span class="messageText">{{item.message}}</span>
                 <span class="messageHours">{{item.date}}</span>
-                <!-- <div @click="removeMessage(index, activeContactIndex)">
-                </div> -->
-
                 <div class="dropmenu dropdown">
                 <button class="btn p-2" type="button" id="dropdownMenu" data-bs-toggle="dropdown"
                   aria-expanded="false">
@@ -187,8 +184,8 @@
                       </button>
                   </li>
                   <li><button 
-                      class="dropdown-item btn-outline-secondary" type="button">Cancella messaggio
-                      <!--@click="removeMessage(index)"-->
+                      class="dropdown-item btn-outline-secondary" type="button"
+                      @click="removeMessage">Cancella messaggio
                       
                     </button>
                   </li>

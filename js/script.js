@@ -228,11 +228,11 @@ const app = new Vue({
                 }
             })
         },
-        // removeMessage(index) {
-        //     if (this.contacts[this.activeContactIndex].message.length > 0) {
-        //         this.contacts[this.activeContactIndex].message.splice(index,1)
-        //     } else return;
-        // },
+        removeMessage() {
+            if (this.contacts[this.activeContactIndex].messages.length > 0) {
+                this.contacts[this.activeContactIndex].messages.pop(this.message)
+            } else return;
+        },
         
 
     } /* /methods */
