@@ -34,7 +34,7 @@
                 <div>
                   <img class="avatar" src="img/avatar_io.png" alt="Davide"> Davide
                 </div>
-                <div class="justify-content-end">
+                <div id="toggle" class="justify-content-end">
                   <i class="icons icon-size fa-solid fa-circle-notch"></i>
                   <i class="icons icon-size fa-solid fa-message"></i>
                   <i class="icons icon-size fa-solid fa-ellipsis-vertical"></i>
@@ -171,80 +171,39 @@
               :key="index"
               :class="item.status === 'sent' ? 'sent' : 'recived' "
               >
-                <span class="messageText">{{item.message}}</span>
-                <span class="messageHours">{{item.date}}</span>
-
+              <span class="messageText">{{item.message}}</span>
+              <span class="messageHours">{{item.date}}</span>
                 <div class="dropmenu dropdown">
-                  <button class="btn p-2" type="button" id="dropdownMenu" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-angle-down"></i>
-                  </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                      <li><button
-                              class="dropdown-item">
-                              Info messaggio
-                          </button>
-                      </li>
-                      <li><button 
-                          class="dropdown-item btn-outline-secondary" type="button"
-                          @click="removeMessage">Cancella messaggio
-                          
+                <button class="btn p-2" type="button" id="dropdownMenu" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="fa-solid fa-angle-down"></i>
+                </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                    <li><button
+                            class="dropdown-item" > Info messaggio
+                            
+                            
                         </button>
-                      </li>
-                    </ul>
-                </div>
-
-                <!-- <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                     <i class="fa-solid fa-angle-down"></i>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Info messaggio</a></li>
-                    <li><a class="dropdown-divider" href="#">Another action</a></li>
-                    <li><a class="dropdown-item  disabled" href="#">Cancella messaggio</a></li>
+                    </li>
+                    <li><button 
+                        class="dropdown-item btn-outline-secondary" type="button"
+                        @click="removeMessage" > Cancella messaggio
+                      </button>
+                    </li>
                   </ul>
-                </div> -->
-                
-            </div>
-          </div>
-          <!-- /messageList-->
-          <!-- <div id="messageList">
-            <ul class="messageListGroup overflow-auto">
-              <li class="d-flex">
-                <div class="box send">
-                  <div class="messageText">Hai portato a spasso il cane?</div>
-                  <div class="messageHours">15:30</div>
-                </div>
-              </li>
-              <li class="d-flex">
-                <div class="box send">
-                  <div class="messageText">Ricordati di stendere i panni</div>
-                  <div class="messageHours">15:50</div>
-                </div>
-              </li>
-              <li class="d-flex">
-                <div class="box recived">
-                  <div class="messageText">Tutto fatto!</div>
-                  <div class="messageHours">16:15</div>
-                </div>
-              </li>
-            </ul>
-          </div>  -->
-           <!-- /messaglist -->
-
+              </div>
+            </div> <!-- /box-->
+          </div> <!-- /messageList-->
           <div class="row footer">
             <div class="d-flex justify-content-between align-items-center">
               <i class="icons icon-size fa-regular fa-face-smile"></i>
-
               <input type="text" class="form-control" placeholder="Scrivi un messaggio" 
               v-model="message"
               @keyup.enter="sendMessage()"
               >
-
               <i class="icons icon-size fa-solid fa-microphone"></i>
             </div>
           </div> <!-- /row footer-->
-
         </div> <!-- /main-->
 
        

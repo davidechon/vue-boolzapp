@@ -34,8 +34,8 @@
   margin: 10px;
 }
 .icon-size{
-   font-size: 150%;
-   cursor: pointer;
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
 .container-fluid{
@@ -98,7 +98,7 @@
   font-weight: 600;
 }
 .subtitle{
-  font-size: 12px;
+  font-size: 1em;
   font-weight: 300px;
 }
 .hours{
@@ -118,18 +118,22 @@
   height: 95vh;
   background-image: url(/img/mine.jpg);
   position: relative;
+  margin: 0 auto;
 }
 .messageListGroup{
   width: 100%;
   height: 80vh;
   overflow-y: auto;
-  padding: 20px;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
 }
 .box{
-  width: calc(90%/2);
+  width: calc(100%/2);
+  max-width: 40%;
   min-height: 70px;
   border-radius: 10px;
-  margin: 10px;
+  margin: 10px auto;
   padding: 10px;
   display: flex;
   flex-flow: column nowrap;
@@ -144,10 +148,10 @@
   margin-left: 0;
 }
 .messageText{
-  display: block;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;  
-  margin: 10px;
+  max-width: 80%;
+  line-height: 2em;
 }
 .messageHours{
   text-align: right;
