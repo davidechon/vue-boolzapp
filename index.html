@@ -199,7 +199,7 @@
               <i class="icons icon-size fa-regular fa-face-smile"></i>
               <input type="text" class="form-control" placeholder="Scrivi un messaggio" 
               v-model="message"
-              @keyup.enter="sendMessage()"
+              @keyup.enter="sendMessage() & checkInput()"
               >
               <i class="icons icon-size fa-solid fa-microphone"></i>
             </div>

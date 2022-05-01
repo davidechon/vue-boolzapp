@@ -21,9 +21,6 @@
 // [x]	Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
 
 
-
-
-
 // [_] Bonus
 // [_] evitare che l'utente possa inviare un messaggio vuoto o composto solamente da spazi
 // [_] A) cambiare icona in basso a destra (a fianco all'input per scrivere un nuovo messaggio) finché l'utente sta scrivendo: di default si visualizza l'icona del microfono, quando l'input non è vuoto si visualizza l'icona dell'aeroplano. Quando il messaggio è stato inviato e l'input si svuota, si torna a visualizzare il microfono.
@@ -268,7 +265,13 @@ const app = new Vue({
         noMessage(contact){
             const noMessage = contact.messages.length > 0 ? contact.messages.at(-1).message : 'NESSUN MESSAGGIO'
             return noMessage
-        }
+        },
+        // checkInput() {
+        //     if (this.contacts[this.activeContactIndex].messages.value == "" ||){
+        //         console.log("Attenzione! Il campo non può essere vuoto");
+        //         return
+        //     };
+        // }   
 
     } /* /methods */
 })
